@@ -87,12 +87,12 @@
 
 		<UI>
 			{#snippet gameName()}
-				<UiGameName name="SCATTER GAME" />
+				<UiGameName name="Gladiator 5000X" />
 			{/snippet}
 			{#snippet logo()}
 				<Text
 					anchor={{ x: 1, y: 0 }}
-					text="ADD YOUR LOGO"
+					text="ONLY SPINS STUDIOS"
 					style={{
 						fontFamily: 'proxima-nova',
 						fontSize: REM * 1.5,
@@ -111,7 +111,7 @@
 		<FreeSpinOutro />
 		<Transition />
 
-		<I18nTest />
+		
 	{/if}
 </App>
 

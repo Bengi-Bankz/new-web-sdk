@@ -1,7 +1,7 @@
 <script lang="ts">
 import { onMount } from 'svelte';
+import { stateConfig } from 'state-shared';
 
-let betLevels = [1, 2, 3];
 let betIndex = 0;
 let showMenu = false;
 let showInfo = false;
@@ -17,6 +17,16 @@ function closeAllModals() {
   showInfo = false;
   showBonus = false;
   showBet = false;
+}
+
+$: betLevels = stateConfig.betAmountOptions;
+
+// Set default betIndex to $1 when betLevels are loaded or changed
+$: if (betLevels && betLevels.length > 0) {
+  const oneDollarIdx = betLevels.findIndex(b => b === 1);
+  if (oneDollarIdx !== -1 && betIndex !== oneDollarIdx) {
+    betIndex = oneDollarIdx;
+  }
 }
 </script>
 
@@ -37,7 +47,7 @@ function closeAllModals() {
   </div>
   <div class="ui-center">
     <button class="ui-btn minus-btn" on:click={() => betIndex = Math.max(betIndex - 1, 0)}>-</button>
-    <button class="ui-btn bet-btn" on:click={() => showBet = true}>${betLevels[betIndex]}</button>
+  <button class="ui-btn bet-btn" on:click={() => showBet = true}>${betLevels[betIndex]}</button>
     <button class="ui-btn plus-btn" on:click={() => betIndex = Math.min(betIndex + 1, betLevels.length - 1)}>+</button>
   </div>
   <div class="ui-right">

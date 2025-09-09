@@ -207,6 +207,8 @@ function closeAllModals() {
   .minus-btn, .plus-btn {
     min-width: 36px;
     min-height: 36px;
+    max-width: 36px;
+    max-height: 36px;
     padding: 10px 12px;
     font-size: 1.05rem;
   }

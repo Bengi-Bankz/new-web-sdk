@@ -156,7 +156,6 @@ function closeAllModals() {
   min-width: 160px;
   pointer-events: auto;
 }
-.hidden { display: none !important; }
 .modal {
   position: fixed;
   left: 0; top: 0; right: 0; bottom: 0;
